@@ -1,0 +1,48 @@
+<div class= "wrapper entries">
+	<form class="" method = "POST" action = ""> 
+
+		<h2 style="font-weight:900;font-size:1.5em"> From {{{diaryname}}}</h2> </br>
+		{{#each post}}
+		<table id = "posts">
+			<tr>
+				<td style="width:88%" id="title"><span id="index">Title: </span> <span id ="indextext">{{this.title}}</span></td>
+				<td style=""> <label><input type = "checkbox" name = "edit"  id="edit" value = "{{this._id}}"> </input> Delete/Edit</label> </td>
+				<!-- <td style="width:41%" id="title"><span id="index">Date: </span><span id ="indextext">{{this.date}}</span></td> -->
+			</tr>
+			<tr>
+				<table id="tdtext" style="width:90%" >
+					<tr><span id="index">Entry: </span></br>
+						<td><span id ="indextext">{{{this.entry.text}}}</span></td>
+					</tr>
+				</table>
+
+			</tr>
+			</br>
+			<tr>
+					<td id="tdtext" width = "100%">{{this.text}}</td>
+			</tr>
+			</br></br>
+			<!-- images -->
+			<tr>
+				{{#if this.images}}
+					<div id ="imageTable">
+						<ul>
+							{{#each this.images}}
+							<li id="imagePost"><img src="{{this}}"></li>
+							{{/each}}
+						</ul> 
+					</div>
+				{{/if}}
+
+				
+
+			</tr>
+			
+		</table>
+		</br>
+		{{/each}}
+
+		<input type="submit" value="deleteEntry">
+	</form>
+	
+</div>

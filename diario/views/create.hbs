@@ -1,0 +1,46 @@
+ <script src="/javascripts/script.js"></script>
+<div class="wrapper form">
+<form  class = "general" id="createEntry" method="post" action="/create">
+	{{#if errors}}
+          {{#each errors}}
+            <div class="alert">{{msg}}</div>
+          {{/each}}
+    {{/if}}
+	<h2> Create an Entry </h2>
+	<!-- external javascript will guide how to select a new diary entry  -->
+	<div id="selectDiary" >
+		Select Diary
+		<select name="diaryname">
+			{{#each diary}}
+	  		<option value="{{this.diary_name}}">{{this.diary_name}}</option>
+	  		{{/each}}
+	  	</select> </br></br>
+	  	<a style="float:right;"id="addDiary"> Create a New Diary </a>
+	  </br>
+	</div>
+	
+	<div id = "createNewDiary" style="display:none;">
+		<label>Diary Name</label>
+		<input type="text" name="newdiaryname" pleaceholder="New Diary">
+	</div>
+
+	<label>Title</label> 
+	<input type="text" name="title" placeholder="title">
+
+	<div> <p>Entry: </p>
+		<textarea  name="entry" cols="55" rows="5"></textarea> 
+	</div> 
+	<br></br>
+
+	<!-- add images 3 at a time--> 
+
+	<div id="addImages">
+		<p><strong>Add Some Images!</strong></p></br>
+		URL: <input type = "text" name = "url1"> <br> </br>
+		URL: <input type = "text" name = "url2"> <br> </br>
+		URL: <input type = "text" name = "url3"><br> </br>
+	</div> 
+
+	<button type="submit" class="button">Create Entry</button>
+</form> 
+</div>
